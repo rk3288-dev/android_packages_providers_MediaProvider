@@ -15,6 +15,7 @@
 
     <application android:process="android.process.media"
                  android:label="@string/app_label"
+                 android:persistent="true"
                  android:supportsRtl="true">
         <provider android:name="MediaProvider" android:authorities="media"
                 android:multiprocess="false" android:exported="true">
@@ -49,6 +50,9 @@
         <receiver android:name="MediaScannerReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.USER_SWITCHED" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.MEDIA_MOUNTED" />
